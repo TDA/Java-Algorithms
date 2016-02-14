@@ -2,6 +2,8 @@ package com.saipc.tda.Np;
 
 import com.saipc.tda.Np.Lib.Range;
 
+import java.util.ArrayList;
+
 /**
  * Created by schandramouli on 2/13/16.
  */
@@ -18,6 +20,20 @@ public class SelectionProblem {
         Range x = new Range("13-18");
         Range y = new Range("16-25");
         Range z = new Range("19-25");
+
+        System.out.println(x.isOverlapping(y));
+        System.out.println(x.isOverlapping(z));
+
+        ArrayList<Range> ranges = new ArrayList<>();
+        ranges.add(r);
+        ranges.add(s);
+        ranges.add(t);
+        ranges.add(u);
+        ranges.add(v);
+        ranges.add(w);
+        ranges.add(x);
+        ranges.add(y);
+        ranges.add(z);
 
     }
 }

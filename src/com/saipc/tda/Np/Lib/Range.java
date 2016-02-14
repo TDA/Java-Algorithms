@@ -24,6 +24,9 @@ public class Range {
     }
 
     public boolean isOverlapping(Range s) {
+        // if either a ends before b or b ends
+        // before a, then they are NOT overlapping,
+        // else they are :O
         return !(this.end < s.start || this.start > s.end);
     }
 }
