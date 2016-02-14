@@ -22,4 +22,8 @@ public class Range {
         this.start = Long.parseLong(times[0]);
         this.end = Long.parseLong(times[1]);
     }
+
+    public boolean isOverlapping(Range s) {
+        return !(this.end < s.start || this.start > s.end);
+    }
 }
