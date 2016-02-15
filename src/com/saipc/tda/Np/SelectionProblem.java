@@ -34,6 +34,10 @@ public class SelectionProblem {
         ranges.add(x);
         ranges.add(y);
         ranges.add(z);
-
+        // need to sort this according to the start times, and
+        // then arrange them. Didnt know this was NP
+        // Also wrote like 300 lines of Python today to a
+        // private repo, so its fine if i just add docs
+        // here :P :D
     }
 }
