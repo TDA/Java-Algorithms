@@ -35,8 +35,24 @@ public class Range implements Comparable{
     }
 
     public static ArrayList<Range> sortRanges(ArrayList<Range> ranges) {
-        ArrayList<Range> ranges1 = new ArrayList<>();
-        //Collections.sort(ranges, );
+        ArrayList<Range> ranges1 = ((ArrayList<Range>) ranges.clone());
+        Collections.sort(ranges1);
         return ranges1;
+    }
+
+    @Override
+    public int compareTo(Object range) {
+        if (this.start == ((Range) range).start) {
+            return 0;
+        } else if (this.start > ((Range) range).start) {
+            return 1;
+        } else {
+            return -1;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "{ " + this.start + "--" + this.end + "}";
     }
 }

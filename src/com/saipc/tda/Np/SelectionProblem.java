@@ -34,8 +34,9 @@ public class SelectionProblem {
         ranges.add(x);
         ranges.add(y);
         ranges.add(z);
-
-        Range.sortRanges(ranges);
+        System.out.println(ranges);
+        ranges = Range.sortRanges(ranges);
+        System.out.println(ranges);
         // need to sort this according to the start times, and
         // then arrange them. Didnt know this was NP
         // Also wrote like 300 lines of Python today to a
