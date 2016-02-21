@@ -1,9 +1,13 @@
 package com.saipc.tda.Np.Lib;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+
 /**
  * Created by schandramouli on 2/13/16.
  */
-public class Range {
+public class Range implements Comparable{
     long start;
     long end;
 
@@ -28,5 +32,11 @@ public class Range {
         // before a, then they are NOT overlapping,
         // else they are :O
         return !(this.end < s.start || this.start > s.end);
+    }
+
+    public static ArrayList<Range> sortRanges(ArrayList<Range> ranges) {
+        ArrayList<Range> ranges1 = new ArrayList<>();
+        //Collections.sort(ranges, );
+        return ranges1;
     }
 }
