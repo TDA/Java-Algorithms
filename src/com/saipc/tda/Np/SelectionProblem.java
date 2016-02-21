@@ -54,5 +54,13 @@ public class SelectionProblem {
         // them non-overlap
         // im thinking i can create a hashmap with the overlaps
         // for each range, quite obviously, a range can only overlap
+
+        Range OverlappedRanges = new Range("0-0");
+        // there are two variations of this, right?
+        // so one is the Google one, which is in the other repo,
+        // but this one is selecting the set that maximizes the
+        // value => no of films acted. This is pretty similar
+        // to Amazon
+
     }
 }
