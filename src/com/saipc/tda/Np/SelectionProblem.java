@@ -3,6 +3,8 @@ package com.saipc.tda.Np;
 import com.saipc.tda.Np.Lib.Range;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 /**
  * Created by schandramouli on 2/13/16.
@@ -21,6 +23,8 @@ public class SelectionProblem {
         Range y = new Range("16-25");
         Range z = new Range("19-25");
         Range z1 = new Range("19-22");
+        Range z2 = new Range("15-24");
+        Range z3 = new Range("19-29");
 
         System.out.println(x.isOverlapping(y));
         System.out.println(x.isOverlapping(z));
@@ -36,6 +40,8 @@ public class SelectionProblem {
         ranges.add(y);
         ranges.add(z);
         ranges.add(z1);
+        ranges.add(z2);
+        ranges.add(z3);
         System.out.println(ranges);
         // need to sort this according to the start times, and
         // then arrange them. Didnt know this was NP
@@ -68,6 +74,33 @@ public class SelectionProblem {
         // do 2 for loops, go over each element, add it, then
         // see if other elements can be added. But for large datasets
         // this is O(n^2), completely unacceptable.
-        // DP? add one, see if
+
+        // use the fact that its sorted to reduce the computes
+        // for the overlapping thing. Create a hashmap with the
+        // overlaps and the items, this will serve as a heuristic,
+        // which can be used for selecting.
+        int runs = 0;
+        LinkedHashMap<Range, Integer> rangeIntegerHashMap = new LinkedHashMap<>();
+        for (int i = 0; i < ranges.size(); i++) {
+            // definitely not n^2, i dont even think this is n logn, it seems
+            // to be much lesser
+            int count = 0;
+            int j = i + 1;
+            Range range = ranges.get(i);
+            if (i != 0 && range.isOverlapping(ranges.get(i - 1))) {
+                count++;
+                runs++;
+            }
+            while (j < ranges.size() && range.isOverlapping(ranges.get(j))) {
+                j++;
+                count++;
+                runs++;
+            }
+            // this is almost the solution i gave for Google
+            rangeIntegerHashMap.put(range, count);
+        }
+
+        System.out.println(rangeIntegerHashMap);
+        System.out.println(runs);
     }
 }

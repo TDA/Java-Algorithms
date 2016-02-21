@@ -34,6 +34,22 @@ public class Range implements Comparable{
         return !(this.end < s.start || this.start > s.end);
     }
 
+    public long getStart() {
+        return start;
+    }
+
+    public void setStart(long start) {
+        this.start = start;
+    }
+
+    public long getEnd() {
+        return end;
+    }
+
+    public void setEnd(long end) {
+        this.end = end;
+    }
+
     // sorts based on start times
     public static ArrayList<Range> sortRanges(ArrayList<Range> ranges) {
         ArrayList<Range> ranges1 = ((ArrayList<Range>) ranges.clone());
@@ -60,6 +76,6 @@ public class Range implements Comparable{
 
     @Override
     public String toString() {
-        return "{ " + this.start + "--" + this.end + "}";
+        return "{ " + this.start + " - " + this.end + " }";
     }
 }
