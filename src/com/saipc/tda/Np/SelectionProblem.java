@@ -39,6 +39,8 @@ public class SelectionProblem {
         System.out.println(ranges);
         // need to sort this according to the start times, and
         // then arrange them. Didnt know this was NP
+        // what use is sorting? why do we need it?
+        // Sorting might help us do fewer comparisons for overlap
 
         ranges = Range.sortRanges(ranges);
         System.out.println(ranges);
@@ -62,5 +64,10 @@ public class SelectionProblem {
         // value => no of films acted. This is pretty similar
         // to Amazon
 
+        // the first thing that comes to mind is that I can
+        // do 2 for loops, go over each element, add it, then
+        // see if other elements can be added. But for large datasets
+        // this is O(n^2), completely unacceptable.
+        // DP? add one, see if
     }
 }
