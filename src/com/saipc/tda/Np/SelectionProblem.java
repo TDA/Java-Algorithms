@@ -35,12 +35,20 @@ public class SelectionProblem {
         ranges.add(y);
         ranges.add(z);
         System.out.println(ranges);
-        ranges = Range.sortRanges(ranges);
-        System.out.println(ranges);
         // need to sort this according to the start times, and
         // then arrange them. Didnt know this was NP
+
+        ranges = Range.sortRanges(ranges);
+        System.out.println(ranges);
+
         // Also wrote like 300 lines of Python today to a
         // private repo, so its fine if i just add docs
         // here :P :D
+
+        // here we run into a problem: do we start at
+        // the beginning and add times discarding new overlaps?
+        // this has now reduced to a knapsack basically, we need
+        // to maximize the no of items selected, while having
+        // them non-overlap
     }
 }

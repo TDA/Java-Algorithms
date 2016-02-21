@@ -34,6 +34,7 @@ public class Range implements Comparable{
         return !(this.end < s.start || this.start > s.end);
     }
 
+    // sorts based on start times
     public static ArrayList<Range> sortRanges(ArrayList<Range> ranges) {
         ArrayList<Range> ranges1 = ((ArrayList<Range>) ranges.clone());
         Collections.sort(ranges1);
