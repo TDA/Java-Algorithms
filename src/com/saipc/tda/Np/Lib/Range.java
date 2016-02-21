@@ -44,7 +44,13 @@ public class Range implements Comparable{
     @Override
     public int compareTo(Object range) {
         if (this.start == ((Range) range).start) {
-            return 0;
+            if (this.end == ((Range) range).end) {
+                return 0;
+            } else if (this.end > ((Range) range).end) {
+                return 1;
+            } else {
+                return -1;
+            }
         } else if (this.start > ((Range) range).start) {
             return 1;
         } else {

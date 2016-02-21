@@ -20,6 +20,7 @@ public class SelectionProblem {
         Range x = new Range("13-18");
         Range y = new Range("16-25");
         Range z = new Range("19-25");
+        Range z1 = new Range("19-22");
 
         System.out.println(x.isOverlapping(y));
         System.out.println(x.isOverlapping(z));
@@ -34,6 +35,7 @@ public class SelectionProblem {
         ranges.add(x);
         ranges.add(y);
         ranges.add(z);
+        ranges.add(z1);
         System.out.println(ranges);
         // need to sort this according to the start times, and
         // then arrange them. Didnt know this was NP
@@ -50,5 +52,7 @@ public class SelectionProblem {
         // this has now reduced to a knapsack basically, we need
         // to maximize the no of items selected, while having
         // them non-overlap
+        // im thinking i can create a hashmap with the overlaps
+        // for each range, quite obviously, a range can only overlap
     }
 }
