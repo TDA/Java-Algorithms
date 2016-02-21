@@ -96,8 +96,13 @@ public class SelectionProblem {
                 count++;
                 runs++;
             }
-            // this is almost the solution i gave for Google
+            // this is almost the solution I gave for Google
             rangeIntegerHashMap.put(range, count);
+        }
+
+        // create a new list with the same ranges, but ordered :D
+        for (int val : rangeIntegerHashMap.values()) {
+
         }
 
         System.out.println(rangeIntegerHashMap);
