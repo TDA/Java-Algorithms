@@ -110,7 +110,8 @@ public class SelectionProblem {
         System.out.println(rangeIntegerHashMap);
         System.out.println(runs);
 
-        // now add the *first* ones with least overlap
+        // now add the JUST the *first* one with least overlap
+        // TODO: this is hard, but lets think of a way
         // quite obviously this can be extremely sparse,
         // so lets add a early exit condition
         //
@@ -133,8 +134,8 @@ public class SelectionProblem {
                 j++;
             }
             overlaps += i * rangeIntegerHashMap.get(i).size();
-
         }
+
         System.out.println(rangesPotential);
 
     }
