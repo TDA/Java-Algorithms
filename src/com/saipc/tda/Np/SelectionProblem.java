@@ -107,12 +107,15 @@ public class SelectionProblem {
             max = Math.max(count, max);
         }
 
-        // now add the *first* one with least overlap
+        System.out.println(rangeIntegerHashMap);
+        System.out.println(runs);
+
+        // now add the *first* ones with least overlap
         // quite obviously this can be extremely sparse,
         // so lets add a early exit condition
         //
         ArrayList<Range> rangesPotential = new ArrayList<>();
-        max = Math.min(max / 2, ranges.size() / 2);
+        // max = Math.min(max / 2, ranges.size() / 2);
         int overlaps = 0;
         for (int i = 0; i < max; i++) {
             if (! rangeIntegerHashMap.containsKey(i)) {
@@ -121,12 +124,18 @@ public class SelectionProblem {
             // heuristic here: if the no of overlaps seen so far
             // is greater than the total number of elts, there
             // is no way to add more right?
-            if ()
-            rangesPotential.addAll(rangeIntegerHashMap.get(i));
+
+            int j = 0;
+            ArrayList<Range> tempRanges = rangeIntegerHashMap.get(i);
+            while (j < tempRanges.size() && (overlaps + i) < ranges.size()) {
+                overlaps += i;
+                rangesPotential.add(tempRanges.get(j));
+                j++;
+            }
+            overlaps += i * rangeIntegerHashMap.get(i).size();
+
         }
+        System.out.println(rangesPotential);
 
-
-        System.out.println(rangeIntegerHashMap);
-        System.out.println(runs);
     }
 }
