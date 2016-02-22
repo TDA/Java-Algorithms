@@ -81,8 +81,9 @@ public class SelectionProblem {
         // which can be used for selecting.
         int runs = 0;
         int max = 0;
-        LinkedHashMap<Integer, ArrayList<Range>> rangeIntegerHashMap = new LinkedHashMap<>();
+        HashMap<Integer, ArrayList<Range>> rangeIntegerHashMap = new HashMap<>();
         for (int i = 0; i < ranges.size(); i++) {
+            // kinda looks like n log n
             int count = 0;
             int j = i + 1;
             Range range = ranges.get(i);
@@ -109,11 +110,19 @@ public class SelectionProblem {
         // now add the *first* one with least overlap
         // quite obviously this can be extremely sparse,
         // so lets add a early exit condition
-        for (int i = 0; i <= max; i++) {
+        //
+        ArrayList<Range> rangesPotential = new ArrayList<>();
+        max = Math.min(max / 2, ranges.size() / 2);
+        int overlaps = 0;
+        for (int i = 0; i < max; i++) {
             if (! rangeIntegerHashMap.containsKey(i)) {
                 continue;
             }
-
+            // heuristic here: if the no of overlaps seen so far
+            // is greater than the total number of elts, there
+            // is no way to add more right?
+            if ()
+            rangesPotential.addAll(rangeIntegerHashMap.get(i));
         }
 
 
