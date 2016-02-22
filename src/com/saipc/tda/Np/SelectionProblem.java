@@ -103,11 +103,17 @@ public class SelectionProblem {
                 rangeIntegerHashMap.put(count, list);
             }
             // update max
+            max = Math.max(count, max);
         }
 
-        // now add the ones with least overlap 
-        for (int i = 0; i < ; i++) {
-            
+        // now add the *first* one with least overlap
+        // quite obviously this can be extremely sparse,
+        // so lets add a early exit condition
+        for (int i = 0; i <= max; i++) {
+            if (! rangeIntegerHashMap.containsKey(i)) {
+                continue;
+            }
+
         }
 
 
