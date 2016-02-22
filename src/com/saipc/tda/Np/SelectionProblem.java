@@ -26,8 +26,8 @@ public class SelectionProblem {
         Range z2 = new Range("15-24");
         Range z3 = new Range("19-29");
 
-        System.out.println(x.isOverlapping(y));
-        System.out.println(x.isOverlapping(z));
+//        System.out.println(x.isOverlapping(y));
+//        System.out.println(x.isOverlapping(z));
 
         ArrayList<Range> ranges = new ArrayList<>();
         ranges.add(r);
@@ -80,10 +80,9 @@ public class SelectionProblem {
         // overlaps and the items, this will serve as a heuristic,
         // which can be used for selecting.
         int runs = 0;
-        LinkedHashMap<Range, Integer> rangeIntegerHashMap = new LinkedHashMap<>();
+        int max = 0;
+        LinkedHashMap<Integer, ArrayList<Range>> rangeIntegerHashMap = new LinkedHashMap<>();
         for (int i = 0; i < ranges.size(); i++) {
-            // definitely not n^2, i dont even think this is n logn, it seems
-            // to be much lesser
             int count = 0;
             int j = i + 1;
             Range range = ranges.get(i);
@@ -96,14 +95,21 @@ public class SelectionProblem {
                 count++;
                 runs++;
             }
-            // this is almost the solution I gave for Google
-            rangeIntegerHashMap.put(range, count);
+            if (rangeIntegerHashMap.containsKey(count)) {
+                rangeIntegerHashMap.get(count).add(range);
+            } else {
+                ArrayList<Range> list = new ArrayList<>();
+                list.add(range);
+                rangeIntegerHashMap.put(count, list);
+            }
+            // update max
         }
 
-        // create a new list with the same ranges, but ordered :D
-        for (int val : rangeIntegerHashMap.values()) {
-
+        // now add the ones with least overlap 
+        for (int i = 0; i < ; i++) {
+            
         }
+
 
         System.out.println(rangeIntegerHashMap);
         System.out.println(runs);
