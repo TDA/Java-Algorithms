@@ -87,9 +87,13 @@ public class SelectionProblem {
             int count = 0;
             int j = i + 1;
             Range range = ranges.get(i);
-            if (i != 0 && range.isOverlapping(ranges.get(i - 1))) {
-                count++;
-                runs++;
+            if (i != 0) {
+                int k = i;
+                while (k > 0 && range.isOverlapping(ranges.get(k - 1))) {
+                    count++;
+                    runs++;
+                    k--;
+                }
             }
             while (j < ranges.size() && range.isOverlapping(ranges.get(j))) {
                 j++;
